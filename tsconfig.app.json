@@ -1,0 +1,23 @@
+/**
+ * @fileoverview Configuración de TypeScript para la aplicación Angular
+ * 
+ * Este archivo extiende la configuración base de TypeScript
+ * con configuraciones específicas para la aplicación Angular.
+ * 
+ * @author Boost Agency Development Team
+ * @version 1.0.0
+ */
+
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": []
+  },
+  "files": [
+    "src/main.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ]
+}

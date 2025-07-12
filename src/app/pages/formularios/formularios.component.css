@@ -1,0 +1,7 @@
+/* Estilos adicionales para los formularios de BOOST AGENCY
+   Puedes agregar aquí estilos personalizados si necesitas algo fuera de Tailwind.
+*/ 
+
+.input-boost {
+  @apply w-full bg-white/10 border border-white/20 rounded-xl text-white px-4 py-2 focus:ring-[#f05f02] focus:ring-2 placeholder:text-white/50 transition-all duration-300 outline-none;
+} 

@@ -1,0 +1,173 @@
+<!-- HERO Planes 360° -->
+<section class="bg-black bg-gradient-to-b from-black via-black to-gray-900 py-20 px-4 font-[Montserrat] animate-fade-in shadow-2xl">
+  <div class="max-w-5xl mx-auto flex flex-col items-center">
+    <h1 class="text-4xl md:text-6xl font-extrabold text-white text-center mb-6 animated-fadein-hero tracking-widest drop-shadow-lg transition-all duration-700">Planes 360°</h1>
+    <p class="text-lg md:text-2xl text-[#f05f02] text-center font-semibold mb-2 animated-slideup-hero">Soluciones escalables según tu etapa de crecimiento</p>
+    <div class="w-24 h-1 bg-[#f05f02] rounded-full mb-4 animated-fadein-bar"></div>
+  </div>
+</section>
+
+<!-- Grid de Planes -->
+<section class="bg-black py-16 px-4 font-[Montserrat] animate-fade-in">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <!-- STARTER BOOST -->
+      <div class="flex flex-col items-center bg-transparent rounded-xl p-6 border border-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-[#f05f02]/40 hover:scale-105 shadow-md rounded-2xl bg-white/5 animate-fade-in"
+        [class.card-selected]="selectedPlan === 1" (click)="selectedPlan = 1" style="cursor:pointer;">
+        <h3 class="relative z-10 text-2xl font-bold text-white mb-2 mt-2 animated-text-zoom-1 tracking-wide">STARTER BOOST</h3>
+        <p class="relative z-10 text-white/70 text-base mb-4 animated-text-fade-1">Ideal para emprendedores digitales</p>
+        <ul class="relative z-10 text-white/90 text-left space-y-2 mb-6 w-full max-w-xs mx-auto animated-text-fade-1">
+          <li class="flex items-center gap-2"><span class="text-[#f05f02] text-lg">&#10003;</span> Diseño web básico</li>
+          <li class="flex items-center gap-2"><span class="text-[#f05f02] text-lg">&#10003;</span> Branding esencial</li>
+          <li class="flex items-center gap-2"><span class="text-[#f05f02] text-lg">&#10003;</span> 1 pauta mensual</li>
+        </ul>
+        <div class="relative z-10 text-white text-2xl font-bold mb-2 animated-text-fade-1">Desde <span class="text-[#f05f02]">$800 USD</span></div>
+      </div>
+      <!-- BUSINESS FLOW (destacada) -->
+      <div class="flex flex-col items-center bg-transparent rounded-xl p-6 border border-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-[#f05f02]/40 hover:scale-105 shadow-md rounded-2xl bg-white/5 animate-fade-in"
+        [class.card-selected]="selectedPlan === 2" (click)="selectedPlan = 2" style="box-shadow:0 0 48px 0 #f05f02cc;cursor:pointer;">
+        <h3 class="relative z-10 text-2xl font-extrabold text-white mb-2 mt-2 animated-text-zoom-2 tracking-wide">BUSINESS FLOW</h3>
+        <p class="relative z-10 text-white/80 text-base mb-4 animated-text-fade-2">Para marcas en crecimiento que requieren posicionamiento y flujo continuo</p>
+        <ul class="relative z-10 text-white/90 text-left space-y-2 mb-6 w-full max-w-xs mx-auto animated-text-fade-2">
+          <li class="flex items-center gap-2"><span class="text-[#f05f02] text-lg">&#10003;</span> Gestión mensual</li>
+          <li class="flex items-center gap-2"><span class="text-[#f05f02] text-lg">&#10003;</span> Contenido profesional</li>
+          <li class="flex items-center gap-2"><span class="text-[#f05f02] text-lg">&#10003;</span> 2 campañas</li>
+          <li class="flex items-center gap-2"><span class="text-[#f05f02] text-lg">&#10003;</span> Automatización básica</li>
+        </ul>
+        <div class="relative z-10 text-white text-2xl font-bold mb-2 animated-text-fade-2">Desde <span class="text-[#f05f02]">$1,200 USD</span></div>
+      </div>
+      <!-- SCALE 360 (premium) -->
+      <div class="flex flex-col items-center bg-transparent rounded-xl p-6 border border-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-[#f05f02]/40 hover:scale-105 shadow-md rounded-2xl bg-white/5 animate-fade-in"
+        [class.card-selected]="selectedPlan === 3" (click)="selectedPlan = 3" style="box-shadow:0 0 36px 0 #f05f02aa;cursor:pointer;">
+        <h3 class="relative z-10 text-2xl font-bold text-white mb-2 mt-2 animated-text-zoom-3 tracking-wide">SCALE 360</h3>
+        <p class="relative z-10 text-white/80 text-base mb-4 animated-text-fade-3">Solución integral anual</p>
+        <ul class="relative z-10 text-white/90 text-left space-y-2 mb-6 w-full max-w-xs mx-auto animated-text-fade-3">
+          <li class="flex items-center gap-2"><span class="text-[#f05f02] text-lg">&#10003;</span> Estrategia total</li>
+          <li class="flex items-center gap-2"><span class="text-[#f05f02] text-lg">&#10003;</span> IA incluida</li>
+          <li class="flex items-center gap-2"><span class="text-[#f05f02] text-lg">&#10003;</span> Contenido premium</li>
+          <li class="flex items-center gap-2"><span class="text-[#f05f02] text-lg">&#10003;</span> Diseño web</li>
+          <li class="flex items-center gap-2"><span class="text-[#f05f02] text-lg">&#10003;</span> CRM</li>
+          <li class="flex items-center gap-2"><span class="text-[#f05f02] text-lg">&#10003;</span> Soporte constante</li>
+        </ul>
+        <div class="relative z-10 text-white text-2xl font-bold mb-2 animated-text-fade-3">Desde <span class="text-[#f05f02]">$2,500 USD</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Animación de fondo para glassmorphism oscuro y animaciones de entrada -->
+<style>
+/* Efecto de zoom elegante al hacer hover en desktop/tablet */
+.card-hover-zoom {
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1), box-shadow 0.4s cubic-bezier(.4,0,.2,1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .card-hover-zoom:hover {
+    transform: scale(1.12) translateY(-12px);
+    z-index: 30;
+    box-shadow: 0 20px 80px 0 #f05f02cc, 0 8px 32px 0 rgba(0,0,0,0.65);
+  }
+}
+
+/* Efecto de selección permanente al hacer click */
+.card-selected {
+  transform: scale(1.15) translateY(-16px) !important;
+  z-index: 40;
+  box-shadow: 0 24px 96px 0 #f05f02ee, 0 8px 32px 0 rgba(0,0,0,0.75) !important;
+  border-color: #f05f02 !important;
+}
+
+/* Animaciones elegantes para textos y tarjetas */
+.animated-fadein-hero {
+  opacity: 0;
+  transform: translateY(-30px) scale(0.98);
+  animation: fadein-hero 1s 0.1s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes fadein-hero {
+  to { opacity: 1; transform: none; }
+}
+.animated-slideup-hero {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideup-hero 1s 0.3s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes slideup-hero {
+  to { opacity: 1; transform: none; }
+}
+.animated-fadein-bar {
+  opacity: 0;
+  animation: fadein-bar 1s 0.5s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes fadein-bar {
+  to { opacity: 1; }
+}
+.animated-card-fadein-1 {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  animation: card-fadein-1 1.1s 0.2s cubic-bezier(.4,0,.2,1) forwards;
+}
+.animated-card-fadein-2 {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  animation: card-fadein-2 1.1s 0.5s cubic-bezier(.4,0,.2,1) forwards;
+}
+.animated-card-fadein-3 {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  animation: card-fadein-3 1.1s 0.8s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes card-fadein-1 {
+  to { opacity: 1; transform: none; }
+}
+@keyframes card-fadein-2 {
+  to { opacity: 1; transform: none; }
+}
+@keyframes card-fadein-3 {
+  to { opacity: 1; transform: none; }
+}
+.animated-text-zoom-1 {
+  opacity: 0;
+  transform: scale(0.92);
+  animation: text-zoom-1 0.7s 0.35s cubic-bezier(.4,0,.2,1) forwards;
+}
+.animated-text-zoom-2 {
+  opacity: 0;
+  transform: scale(0.92);
+  animation: text-zoom-2 0.7s 0.65s cubic-bezier(.4,0,.2,1) forwards;
+}
+.animated-text-zoom-3 {
+  opacity: 0;
+  transform: scale(0.92);
+  animation: text-zoom-3 0.7s 0.95s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes text-zoom-1 {
+  to { opacity: 1; transform: none; }
+}
+@keyframes text-zoom-2 {
+  to { opacity: 1; transform: none; }
+}
+@keyframes text-zoom-3 {
+  to { opacity: 1; transform: none; }
+}
+.animated-text-fade-1 {
+  opacity: 0;
+  animation: text-fade-1 0.7s 0.45s cubic-bezier(.4,0,.2,1) forwards;
+}
+.animated-text-fade-2 {
+  opacity: 0;
+  animation: text-fade-2 0.7s 0.75s cubic-bezier(.4,0,.2,1) forwards;
+}
+.animated-text-fade-3 {
+  opacity: 0;
+  animation: text-fade-3 0.7s 1.05s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes text-fade-1 {
+  to { opacity: 1; }
+}
+@keyframes text-fade-2 {
+  to { opacity: 1; }
+}
+@keyframes text-fade-3 {
+  to { opacity: 1; }
+}
+</style> 
