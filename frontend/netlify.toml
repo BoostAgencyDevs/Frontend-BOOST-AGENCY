@@ -1,28 +1,24 @@
-# ✅ Archivo correctamente documentado
-# @fileoverview Configuración de despliegue en Netlify para Boost Agency
-# 
-# Este archivo define la configuración de build y despliegue
-# para la aplicación Angular en la plataforma Netlify.
-# 
-# @author Boost Agency Development Team
-# @version 1.0.0
+# ✅ Archivo corregido para despliegue en Netlify
+# @fileoverview Configuración de build y deploy para Boost Agency (Angular)
+# @author 
+# Boost Agency Development Team
 
 [build]
-  base = "frontend"                                    # Directorio base del proyecto
-  publish = "dist/frontend/browser"                    # Directorio de archivos a publicar
-  command = "npm install && npx ng build --configuration production"  # Comando de build
+  base = "frontend"
+  publish = "dist/frontend"  # ← CORREGIDO: sin /browser
+  command = "npm install && npx ng build --configuration production"
 
 [build.environment]
-  NODE_VERSION = "18"                                  # Versión de Node.js para el build
+  NODE_VERSION = "18"
 
-# Configuración de redirecciones para SPA (Single Page Application)
 [[redirects]]
-  from = "/*"                                          # Todas las rutas
-  to = "/index.html"                                   # Redirigir al index.html
-  status = 200                                         # Status code 200 (OK)
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
-# Configuración para desarrollo local con Netlify CLI
+# (Opcional) Configuración para desarrollo local con Netlify CLI
 [dev]
-  command = "ng serve"                                 # Comando para desarrollo
-  port = 4200                                          # Puerto de desarrollo
-  publish = "dist/frontend/browser"                    # Directorio de publicación 
+  command = "ng serve"
+  port = 4200
+  publish = "dist/frontend"  # ← CORREGIDO aquí también
+ 
