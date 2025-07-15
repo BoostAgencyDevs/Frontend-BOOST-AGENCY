@@ -1,0 +1,87 @@
+<!-- CONTACTO BOOST AGENCY -->
+<!--
+Notas para expansión futura:
+- Integrar backend para envío real de mensajes
+-->
+
+<div class="min-h-screen bg-black text-white font-montserrat flex flex-col justify-between animate-fade-in">
+  <!-- Encabezado -->
+  <section class="text-center py-12 animate-slide-up">
+    <h1 class="text-4xl sm:text-5xl font-bold mb-3 text-white">Contáctanos</h1>
+    <p class="text-lg text-white/80">¿Tienes alguna pregunta? Contáctanos y te responderemos lo antes posible.</p>
+  </section>
+
+  <!-- Contenedor principal -->
+  <section class="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto w-full px-4 mb-16 animate-fade-in">
+    <!-- Formulario -->
+    <form class="flex-1 bg-white/5 rounded-xl p-6 shadow-lg flex flex-col gap-4 animate-slide-up">
+      <label class="flex flex-col text-left gap-1">
+        <span class="font-semibold">Nombre</span>
+        <input type="text" placeholder="Tu nombre" class="rounded-xl px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all" required />
+      </label>
+      <label class="flex flex-col text-left gap-1">
+        <span class="font-semibold">Correo</span>
+        <input type="email" placeholder="tucorreo@email.com" class="rounded-xl px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all" required />
+      </label>
+      <label class="flex flex-col text-left gap-1">
+        <span class="font-semibold">Teléfono <span class="text-white/50 text-xs">(opcional)</span></span>
+        <input type="tel" placeholder="Ej: +57 301 123 4567" class="rounded-xl px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all" />
+      </label>
+      <label class="flex flex-col text-left gap-1">
+        <span class="font-semibold">Mensaje</span>
+        <textarea rows="4" placeholder="Escribe tu mensaje..." class="rounded-xl px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all resize-none" required></textarea>
+      </label>
+      <button type="submit" class="btn-boost mt-2 w-full">Enviar mensaje</button>
+    </form>
+
+    <!-- Información de contacto -->
+    <div class="flex-1 flex flex-col gap-6 justify-center animate-slide-up">
+      <div class="flex items-start gap-3">
+        <span class="mt-1"><svg class="w-6 h-6 text-[#f05f02]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" /><circle cx="12" cy="10" r="3" /></svg></span>
+        <div>
+          <span class="font-semibold">Dirección:</span><br />
+          <span class="text-white/80">Av. Principal 123, Ciudad, País</span>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="mt-1"><svg class="w-6 h-6 text-[#f05f02]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12v1a4 4 0 01-8 0v-1m8 0a4 4 0 00-8 0m8 0V8a4 4 0 00-8 0v4m8 0a4 4 0 01-8 0" /></svg></span>
+        <div>
+          <span class="font-semibold">Correos:</span><br />
+          <span class="text-white/80 block">info&#64;boostagency.com</span>
+          <span class="text-white/80 block">soporte&#64;boostagency.com</span>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="mt-1"><svg class="w-6 h-6 text-[#f05f02]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2zm10-10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg></span>
+        <div>
+          <span class="font-semibold">Teléfonos:</span><br />
+          <span class="text-white/80 block">Colombia: +57 301 123 4567</span>
+          <span class="text-white/80 block">Panamá: +507 6789 1234</span>
+          <span class="text-white/80 block">USA: +1 (305) 555-6789</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Botón WhatsApp -->
+  <a href="https://wa.me/573011234567" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 bg-[#25D366] rounded-full p-4 shadow-lg transition-all hover:scale-110 flex items-center justify-center">
+    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A12 12 0 003.48 20.52l-1.1 4.02a1 1 0 001.22 1.22l4.02-1.1A12 12 0 0020.52 3.48zm-8.52 17a10 10 0 1110-10 10 10 0 01-10 10zm5.2-7.6a1.15 1.15 0 00-.82-.35c-.23 0-.46.07-.67.2l-1.13.7a7.13 7.13 0 01-3.36-3.36l.7-1.13a1.15 1.15 0 00-.15-1.49l-1.1-1.1a1.15 1.15 0 00-1.49-.15l-.7.7a2.3 2.3 0 00-.67 1.64c0 4.13 3.36 7.49 7.49 7.49a2.3 2.3 0 001.64-.67l.7-.7a1.15 1.15 0 00-.15-1.49z"/></svg>
+  </a>
+
+  <!-- Footer -->
+  <footer class="w-full bg-black text-white/60 py-6 mt-12 border-t border-white/10 animate-fade-in">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 px-4">
+      <span class="text-sm">© 2025 Boost Agency. Todos los derechos reservados.</span>
+      <nav class="flex flex-wrap gap-4 justify-center md:justify-end text-sm">
+        <a routerLink="/" class="hover:text-[#f05f02] transition">Inicio</a>
+        <a routerLink="/nosotros" class="hover:text-[#f05f02] transition">Nosotros</a>
+        <a routerLink="/servicios" class="hover:text-[#f05f02] transition">Servicios</a>
+        <a routerLink="/planes" class="hover:text-[#f05f02] transition">Planes 360°</a>
+        <a routerLink="/fundacion" class="hover:text-[#f05f02] transition">Fundación</a>
+        <a routerLink="/boostcast" class="hover:text-[#f05f02] transition">BoostCast</a>
+        <a routerLink="/tienda" class="hover:text-[#f05f02] transition">Tienda</a>
+        <a routerLink="/contacto" class="hover:text-[#f05f02] transition">Contacto</a>
+      </nav>
+    </div>
+  </footer>
+</div> 

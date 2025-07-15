@@ -1,0 +1,178 @@
+<!-- Contenedor principal de la aplicación -->
+<div class="min-h-screen flex flex-col bg-dark-950">
+  <!-- Header: Navegación moderna y profesional -->
+  <header class="w-full lg:overflow-visible overflow-x-auto">
+    <nav class="w-full">
+      <div class="lg:min-w-0 flex items-center justify-between h-16 lg:h-20 max-w-screen-xl mx-auto relative">
+        <!-- Logo principal BOOST AGENCY -->
+        <a routerLink="/inicio" class="flex items-center ml-0 flex-shrink-0">
+          <img src="assets\images\global\Logo_Principal.png" alt="BOOST AGENCY Logo" class="object-contain max-w-[120px]" />
+        </a>
+        <!-- Menú de navegación centrado (solo desktop/tablet grande) -->
+        <div class="hidden lg:flex flex-grow justify-center">
+          <div class="flex items-center space-x-0.5">
+            <a routerLink="/inicio" routerLinkActive="text-accent bg-dark-800" class="px-4 py-2 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link">Inicio</a>
+            <a routerLink="/nosotros" routerLinkActive="text-accent bg-dark-800" class="px-4 py-2 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link">Nosotros</a>
+            <a routerLink="/servicios" routerLinkActive="text-accent bg-dark-800" class="px-4 py-2 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link">Servicios</a>
+            <a routerLink="/planes" routerLinkActive="text-accent bg-dark-800" class="px-4 py-2 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link">Planes</a>
+            <a routerLink="/fundacion" routerLinkActive="text-accent bg-dark-800" class="px-4 py-2 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link">Fundación</a>
+            <a routerLink="/boostcast" routerLinkActive="text-accent bg-dark-800" class="px-4 py-2 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link">BoostCast</a>
+            <a routerLink="/tienda" routerLinkActive="text-accent bg-dark-800" class="px-4 py-2 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link">Tienda</a>
+            <a routerLink="/contacto" routerLinkActive="text-accent bg-dark-800" class="px-4 py-2 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link">Contacto</a>
+          </div>
+        </div>
+        <!-- CTA Desktop (solo desktop/tablet grande) -->
+        <a routerLink="/formularios" class="ml-4 mr-4 hidden md:inline-flex items-center bg-[#f05f02] text-white text-sm px-4 py-2 rounded-xl font-semibold uppercase whitespace-nowrap transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_16px_rgba(240,95,2,0.4)] focus:outline-none focus:ring-2 focus:ring-[#f05f02] animate-pulse" translate="no">
+          THE FUTURE IS NOW
+          <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+        <!-- Botón de menú móvil (hamburguesa) -->
+        <button class="lg:hidden absolute right-4 top-4 p-2 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-dark-950 z-30"
+                (click)="toggleMobileMenu()" title="Abrir menú">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Menú móvil desplegable -->
+      <div class="lg:hidden border-t border-dark-700 bg-dark-900/95 backdrop-blur-md" 
+           [class.hidden]="!isMobileMenuOpen">
+        <div class="py-4 space-y-2">
+          <a routerLink="/inicio" routerLinkActive="text-accent bg-dark-800" class="block px-4 py-3 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link" (click)="closeMobileMenu()">Inicio</a>
+          <a routerLink="/nosotros" routerLinkActive="text-accent bg-dark-800" class="block px-4 py-3 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link" (click)="closeMobileMenu()">Nosotros</a>
+          <a routerLink="/servicios" routerLinkActive="text-accent bg-dark-800" class="block px-4 py-3 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link" (click)="closeMobileMenu()">Servicios</a>
+          <a routerLink="/planes" routerLinkActive="text-accent bg-dark-800" class="block px-4 py-3 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link" (click)="closeMobileMenu()">Planes</a>
+          <a routerLink="/fundacion" routerLinkActive="text-accent bg-dark-800" class="block px-4 py-3 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link" (click)="closeMobileMenu()">Fundación</a>
+          <a routerLink="/boostcast" routerLinkActive="text-accent bg-dark-800" class="block px-4 py-3 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link" (click)="closeMobileMenu()">BoostCast</a>
+          <a routerLink="/tienda" routerLinkActive="text-accent bg-dark-800" class="block px-4 py-3 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link" (click)="closeMobileMenu()">Tienda</a>
+          <a routerLink="/contacto" routerLinkActive="text-accent bg-dark-800" class="block px-4 py-3 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 font-medium nav-link" (click)="closeMobileMenu()">Contacto</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Contenido principal: Aquí se renderizan las páginas individuales -->
+  <main class="flex-1">
+    <ng-content></ng-content>
+  </main>
+
+  <!-- Footer: Diseño moderno y profesional -->
+  <footer class="bg-dark-900 text-light-50 relative overflow-hidden">
+    <!-- Elementos decorativos de fondo -->
+    <div class="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800/20 to-accent/10"></div>
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent to-accent-light"></div>
+    
+    <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
+      <!-- Grid principal del footer -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <!-- Columna 1: Información de la empresa -->
+        <div class="lg:col-span-2">
+          <!-- Logo del footer -->
+          <div class="flex items-center space-x-3 mb-6">
+            <img src="assets\images\global\Logo_Principal.png" alt="BOOST AGENCY">
+          </div>
+          
+          <p class="text-light-300 text-lg leading-relaxed mb-6 max-w-md">
+            Transformamos tu presencia digital con estrategias innovadoras y resultados medibles. Tu éxito es nuestro compromiso.
+          </p>
+          
+          <!-- Redes sociales con diseño moderno -->
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/share/1VYSxwFLUE/?mibextid=wwXIfr" target="_blank" 
+               class="w-12 h-12 bg-dark-800 hover:bg-accent rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-glow social-link">
+              <i class="fab fa-facebook text-xl"></i>
+            </a>
+            <a href="https://www.instagram.com/boostdigitalstudio?igsh=MWh4bWVxcXpzbml5cA==" target="_blank" 
+               class="w-12 h-12 bg-dark-800 hover:bg-gradient-to-br hover:from-accent hover:to-accent-light rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-glow social-link">
+              <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a href="#" target="_blank" 
+               class="w-12 h-12 bg-dark-800 hover:bg-accent rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-glow social-link">
+              <i class="fab fa-linkedin text-xl"></i>
+            </a>
+            <a href="#" target="_blank" 
+               class="w-12 h-12 bg-dark-800 hover:bg-accent rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-glow social-link">
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Columna 2: Enlaces rápidos -->
+        <div>
+          <h4 class="text-xl font-bold text-light-50 mb-6">Enlaces Rápidos</h4>
+          <div class="space-y-3">
+            <a routerLink="/inicio" 
+               class="block text-light-300 hover:text-accent hover:translate-x-1 transition-all duration-300 footer-link">
+              Inicio
+            </a>
+            <a routerLink="/servicios" 
+               class="block text-light-300 hover:text-accent hover:translate-x-1 transition-all duration-300 footer-link">
+              Servicios
+            </a>
+            <a routerLink="/planes" 
+               class="block text-light-300 hover:text-accent hover:translate-x-1 transition-all duration-300 footer-link">
+              Planes
+            </a>
+            <a routerLink="/nosotros" 
+               class="block text-light-300 hover:text-accent hover:translate-x-1 transition-all duration-300 footer-link">
+              Nosotros
+            </a>
+            <a routerLink="/contacto" 
+               class="block text-light-300 hover:text-accent hover:translate-x-1 transition-all duration-300 footer-link">
+              Contacto
+            </a>
+          </div>
+        </div>
+        
+        <!-- Columna 3: Información de contacto -->
+        <div>
+          <h4 class="text-xl font-bold text-light-50 mb-6">Contacto</h4>
+          <div class="space-y-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="text-light-300">Email:</p>
+                <p class="text-light-50 font-medium">hola&#64;boostagency.com</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-accent-light/20 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-accent-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="text-light-300">Teléfono:</p>
+                <p class="text-light-50 font-medium">+57 0000000000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Línea divisoria y copyright -->
+      <div class="border-t border-dark-700 mt-2 pt-2">
+        <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <p class="text-light-400 text-center md:text-left">
+            &copy; 2025 BOOST AGENCY. Todos los derechos reservados.
+          </p>
+          <div class="flex space-x-6 text-sm">
+            <a href="#" class="text-light-400 hover:text-accent transition-colors footer-link">Política de Privacidad</a>
+            <a href="#" class="text-light-400 hover:text-accent transition-colors footer-link">Términos de Servicio</a>
+            <a href="#" class="text-light-400 hover:text-accent transition-colors footer-link">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<div id="boost-progress-bar" style="position:fixed;top:0;left:0;width:0;height:4px;z-index:99999;background:#f05f02;transition:width 0.5s cubic-bezier(.4,0,.2,1);"></div>

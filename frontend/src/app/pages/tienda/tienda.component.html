@@ -1,0 +1,71 @@
+<!-- BOOST SHOP - Página de Tienda -->
+<!--
+Notas para expansión futura:
+- Integrar pasarela de pago (Stripe, PayU, ePayco)
+- Plataforma de dropshipping (Printify, Printful)
+-->
+
+<div class="min-h-screen bg-black text-white animate-fade-in font-montserrat">
+  <!-- Hero Section -->
+  <section class="flex flex-col items-center justify-center text-center py-16 px-4">
+    <h1 class="text-5xl sm:text-6xl font-bold mb-6 tracking-tight text-white">BOOST SHOP</h1>
+    <p class="max-w-2xl text-lg sm:text-xl mb-3 text-white/90">
+      Nuestra tienda de moda nace como un tributo al estilo de vida digital: funcional, futurista y conectado. Cada elemento está diseñado para creativos, nómadas digitales y visionarios que viven en movimiento, crean en la nube y piensan algorítmicamente.
+    </p>
+    <p class="max-w-2xl text-base sm:text-lg text-white/70">
+      No solo vestimos a la nueva generación de innovadores digitales, también los impulsamos. El 50% de nuestras ventas se destinan a empoderar a jóvenes y mentes brillantes en tecnología a través de nuestra fundación.
+    </p>
+  </section>
+
+  <!-- Filtros y Buscador -->
+  <section class="w-full max-w-6xl mx-auto px-4 mb-10 animate-slide-up">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between w-full">
+      <!-- Filtros -->
+      <div class="flex flex-wrap gap-x-4 gap-y-2 justify-center sm:justify-start w-full sm:w-auto max-w-3xl">
+        <button *ngFor="let cat of categorias"
+          (click)="seleccionarCategoria(cat)"
+          [ngClass]="{
+            'bg-[#f05f02] text-white border-[#f05f02] shadow-[0_0_16px_2px_rgba(240,95,2,0.3)]': cat === categoriaSeleccionada,
+            'bg-white/5 text-white border-white/20': cat !== categoriaSeleccionada
+          }"
+          class="inline-flex items-center justify-center px-5 py-2 min-h-[44px] mb-2 rounded-full font-semibold border backdrop-blur-md shadow-md transition-all duration-300 ease-in-out hover:text-[#f05f02] hover:border-[#f05f02] hover:shadow-[0_0_16px_2px_rgba(240,95,2,0.3)] focus:text-[#f05f02] focus:border-[#f05f02] min-w-[110px] leading-tight text-base text-white hover:text-white focus:text-white active:text-white">
+          {{cat}}
+        </button>
+      </div>
+      <!-- Buscador -->
+      <div class="relative w-full sm:w-72 flex justify-center sm:justify-end mt-2 sm:mt-0">
+        <input type="text" placeholder="Buscar artículos..." [(ngModel)]="busqueda" (input)="onBuscar($event)"
+          class="w-full pl-10 pr-4 py-2 rounded-full border border-[#f05f02] border-opacity-60 bg-transparent text-white placeholder:text-white/50 shadow focus:outline-none focus:border-[#f05f02] transition-all duration-300" />
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#f05f02] pointer-events-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" /></svg>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catálogo de productos -->
+  <section class="max-w-6xl mx-auto px-4">
+    <h2 class="text-2xl font-semibold mb-8 text-white">Artículos Disponibles</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div *ngFor="let producto of productosFiltrados" class="flex flex-col items-center bg-transparent rounded-xl p-6 border border-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-[#f05f02]/40 hover:scale-105 shadow-md rounded-2xl bg-white/5 backdrop-blur-lg animate-fade-in">
+        <img [src]="producto.imagen" [alt]="producto.nombre" class="w-full h-56 object-cover rounded-t-2xl" />
+        <div class="p-6 flex flex-col gap-3">
+          <h3 class="text-lg font-semibold tracking-wide text-white">{{producto.nombre}}</h3>
+          <span class="text-[#f05f02] font-bold text-2xl drop-shadow">${{producto.precio}}</span>
+          <p class="text-white/70 text-sm mb-2">{{producto.descripcion}}</p>
+          <button class="transition-all duration-300 ease-in-out hover:bg-white hover:text-[#f05f02] hover:shadow-[0_0_24px_4px_rgba(240,95,2,0.5)] hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#f05f02] text-white hover:text-white focus:text-white active:text-white">
+            Ver más
+          </button>
+        </div>
+      </div>
+      <div *ngIf="productosFiltrados.length === 0" class="col-span-full text-center text-white/60 py-12">
+        No se encontraron productos para esta búsqueda o categoría.
+      </div>
+    </div>
+  </section>
+
+  <!-- Nota/CTA final -->
+  <div class="text-sm text-white/60 mt-12 text-center max-w-3xl mx-auto px-4">
+    ¿Sabías que puedes vivir el estilo BOOST y al mismo tiempo crear futuro? El 50% de nuestras ventas apoyan nuestra fundación para formar jóvenes talentos digitales.
+  </div>
+</div> 
