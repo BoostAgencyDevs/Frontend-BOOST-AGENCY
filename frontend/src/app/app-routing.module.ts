@@ -10,7 +10,6 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InicioComponent } from './pages/inicio/inicio.component';
 
 /**
  * Configuración de rutas de la aplicación
@@ -24,8 +23,8 @@ const routes: Routes = [
   // Ruta por defecto - redirige a inicio
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   
-  // Página principal - cargada directamente
-  { path: 'inicio', component: InicioComponent },
+  // Página principal - cargada por lazy loading
+  { path: 'inicio', loadChildren: () => import('./pages/inicio/inicio.module').then(m => m.InicioModule) },
   
   // Módulos con lazy loading para optimizar rendimiento
   { path: 'nosotros', loadChildren: () => import('./pages/nosotros/nosotros.module').then(m => m.NosotrosModule) },

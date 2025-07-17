@@ -6,30 +6,30 @@ Notas para expansión futura:
 
 <div class="min-h-screen bg-black text-white font-montserrat flex flex-col justify-between animate-fade-in">
   <!-- Encabezado -->
-  <section class="text-center py-12 animate-slide-up">
-    <h1 class="text-4xl sm:text-5xl font-bold mb-3 text-white">Contáctanos</h1>
-    <p class="text-lg text-white/80">¿Tienes alguna pregunta? Contáctanos y te responderemos lo antes posible.</p>
+  <section class="text-center py-10 sm:py-12 animate-slide-up">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-white">Contáctanos</h1>
+    <p class="text-base sm:text-lg text-white/80">¿Tienes alguna pregunta? Contáctanos y te responderemos lo antes posible.</p>
   </section>
 
   <!-- Contenedor principal -->
-  <section class="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto w-full px-4 mb-16 animate-fade-in">
+  <section class="flex flex-col md:flex-row gap-8 max-w-[1320px] mx-auto w-full px-3 sm:px-5 md:px-8 mb-16 animate-fade-in">
     <!-- Formulario -->
-    <form class="flex-1 bg-white/5 rounded-xl p-6 shadow-lg flex flex-col gap-4 animate-slide-up">
+    <form class="flex-1 bg-white/5 rounded-xl p-4 sm:p-6 shadow-lg flex flex-col gap-4 animate-slide-up">
       <label class="flex flex-col text-left gap-1">
-        <span class="font-semibold">Nombre</span>
-        <input type="text" placeholder="Tu nombre" class="rounded-xl px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all" required />
+        <span class="font-semibold text-sm sm:text-base">Nombre</span>
+        <input type="text" placeholder="Tu nombre" class="rounded-xl px-3 sm:px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all text-sm sm:text-base" required />
       </label>
       <label class="flex flex-col text-left gap-1">
-        <span class="font-semibold">Correo</span>
-        <input type="email" placeholder="tucorreo@email.com" class="rounded-xl px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all" required />
+        <span class="font-semibold text-sm sm:text-base">Correo</span>
+        <input type="email" placeholder="tucorreo@email.com" class="rounded-xl px-3 sm:px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all text-sm sm:text-base" required />
       </label>
       <label class="flex flex-col text-left gap-1">
-        <span class="font-semibold">Teléfono <span class="text-white/50 text-xs">(opcional)</span></span>
-        <input type="tel" placeholder="Ej: +57 301 123 4567" class="rounded-xl px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all" />
+        <span class="font-semibold text-sm sm:text-base">Teléfono <span class="text-white/50 text-xs">(opcional)</span></span>
+        <input type="tel" placeholder="Ej: +57 301 123 4567" class="rounded-xl px-3 sm:px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all text-sm sm:text-base" />
       </label>
       <label class="flex flex-col text-left gap-1">
-        <span class="font-semibold">Mensaje</span>
-        <textarea rows="4" placeholder="Escribe tu mensaje..." class="rounded-xl px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all resize-none" required></textarea>
+        <span class="font-semibold text-sm sm:text-base">Mensaje</span>
+        <textarea rows="4" placeholder="Escribe tu mensaje..." class="rounded-xl px-3 sm:px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all resize-none text-sm sm:text-base" required></textarea>
       </label>
       <button type="submit" class="btn-boost mt-2 w-full">Enviar mensaje</button>
     </form>
@@ -39,25 +39,25 @@ Notas para expansión futura:
       <div class="flex items-start gap-3">
         <span class="mt-1"><svg class="w-6 h-6 text-[#f05f02]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" /><circle cx="12" cy="10" r="3" /></svg></span>
         <div>
-          <span class="font-semibold">Dirección:</span><br />
-          <span class="text-white/80">Av. Principal 123, Ciudad, País</span>
+          <span class="font-semibold text-sm sm:text-base">Dirección:</span><br />
+          <span class="text-white/80 text-sm sm:text-base">Av. Principal 123, Ciudad, País</span>
         </div>
       </div>
       <div class="flex items-start gap-3">
         <span class="mt-1"><svg class="w-6 h-6 text-[#f05f02]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12v1a4 4 0 01-8 0v-1m8 0a4 4 0 00-8 0m8 0V8a4 4 0 00-8 0v4m8 0a4 4 0 01-8 0" /></svg></span>
         <div>
-          <span class="font-semibold">Correos:</span><br />
-          <span class="text-white/80 block">info&#64;boostagency.com</span>
-          <span class="text-white/80 block">soporte&#64;boostagency.com</span>
+          <span class="font-semibold text-sm sm:text-base">Correos:</span><br />
+          <span class="text-white/80 block text-sm sm:text-base">info&#64;boostagency.com</span>
+          <span class="text-white/80 block text-sm sm:text-base">soporte&#64;boostagency.com</span>
         </div>
       </div>
       <div class="flex items-start gap-3">
         <span class="mt-1"><svg class="w-6 h-6 text-[#f05f02]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2zm10-10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg></span>
         <div>
-          <span class="font-semibold">Teléfonos:</span><br />
-          <span class="text-white/80 block">Colombia: +57 301 123 4567</span>
-          <span class="text-white/80 block">Panamá: +507 6789 1234</span>
-          <span class="text-white/80 block">USA: +1 (305) 555-6789</span>
+          <span class="font-semibold text-sm sm:text-base">Teléfonos:</span><br />
+          <span class="text-white/80 block text-sm sm:text-base">Colombia: +57 301 123 4567</span>
+          <span class="text-white/80 block text-sm sm:text-base">Panamá: +507 6789 1234</span>
+          <span class="text-white/80 block text-sm sm:text-base">USA: +1 (305) 555-6789</span>
         </div>
       </div>
     </div>
@@ -70,9 +70,9 @@ Notas para expansión futura:
 
   <!-- Footer -->
   <footer class="w-full bg-black text-white/60 py-6 mt-12 border-t border-white/10 animate-fade-in">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 px-4">
-      <span class="text-sm">© 2025 Boost Agency. Todos los derechos reservados.</span>
-      <nav class="flex flex-wrap gap-4 justify-center md:justify-end text-sm">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <span class="text-xs sm:text-sm">© 2025 Boost Agency. Todos los derechos reservados.</span>
+      <nav class="flex flex-wrap gap-4 justify-center md:justify-end text-xs sm:text-sm">
         <a routerLink="/" class="hover:text-[#f05f02] transition">Inicio</a>
         <a routerLink="/nosotros" class="hover:text-[#f05f02] transition">Nosotros</a>
         <a routerLink="/servicios" class="hover:text-[#f05f02] transition">Servicios</a>

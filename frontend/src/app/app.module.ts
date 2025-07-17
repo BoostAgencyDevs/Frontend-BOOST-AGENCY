@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
-import { InicioComponent } from './pages/inicio/inicio.component';
+import { LoaderComponent } from './layout/loader/loader.component';
 
 /**
  * Módulo raíz de la aplicación
@@ -30,7 +30,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
   declarations: [
     AppComponent,        // Componente raíz de la aplicación
     LayoutComponent,     // Componente de layout principal
-    InicioComponent      // Componente de la página de inicio
+    LoaderComponent      // Loader para pantalla de carga
   ],
   imports: [
     BrowserModule,       // Módulo para aplicaciones web

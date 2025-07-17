@@ -8,8 +8,8 @@
  * @version 1.0.0
  */
 
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 /**
  * Componente de layout principal
@@ -24,9 +24,10 @@ import { Router } from '@angular/router';
   selector: 'app-layout',  // Selector para usar en templates
   templateUrl: './layout.component.html'
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit {
   /** Estado del menú móvil (abierto/cerrado) */
   isMobileMenuOpen = false;
+  isLoading: boolean = true;
 
   /**
    * Constructor del componente
@@ -37,6 +38,17 @@ export class LayoutComponent {
     // Cerrar el menú móvil automáticamente al cambiar de ruta
     this.router.events.subscribe(() => {
       this.closeMobileMenu();
+    });
+  }
+
+  ngOnInit() {
+    // Oculta el loader cuando la navegación termina
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 500); // Puedes ajustar el tiempo si quieres un fade más suave
+      }
     });
   }
 

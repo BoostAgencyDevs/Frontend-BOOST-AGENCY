@@ -7,18 +7,18 @@ Notas para expansión futura:
 
 <div class="min-h-screen bg-black text-white animate-fade-in font-montserrat">
   <!-- Hero Section -->
-  <section class="flex flex-col items-center justify-center text-center py-16 px-4">
-    <h1 class="text-5xl sm:text-6xl font-bold mb-6 tracking-tight text-white">BOOST SHOP</h1>
-    <p class="max-w-2xl text-lg sm:text-xl mb-3 text-white/90">
+  <section class="flex flex-col items-center justify-center text-center py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+    <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight text-white">BOOST SHOP</h1>
+    <p class="max-w-2xl text-base sm:text-lg md:text-xl mb-3 text-white/90">
       Nuestra tienda de moda nace como un tributo al estilo de vida digital: funcional, futurista y conectado. Cada elemento está diseñado para creativos, nómadas digitales y visionarios que viven en movimiento, crean en la nube y piensan algorítmicamente.
     </p>
-    <p class="max-w-2xl text-base sm:text-lg text-white/70">
+    <p class="max-w-2xl text-sm sm:text-base md:text-lg text-white/70">
       No solo vestimos a la nueva generación de innovadores digitales, también los impulsamos. El 50% de nuestras ventas se destinan a empoderar a jóvenes y mentes brillantes en tecnología a través de nuestra fundación.
     </p>
   </section>
 
   <!-- Filtros y Buscador -->
-  <section class="w-full max-w-6xl mx-auto px-4 mb-10 animate-slide-up">
+  <section class="w-full max-w-[1320px] mx-auto px-3 sm:px-5 md:px-8 mb-10 animate-slide-up">
     <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between w-full">
       <!-- Filtros -->
       <div class="flex flex-wrap gap-x-4 gap-y-2 justify-center sm:justify-start w-full sm:w-auto max-w-3xl">
@@ -44,16 +44,16 @@ Notas para expansión futura:
   </section>
 
   <!-- Catálogo de productos -->
-  <section class="max-w-6xl mx-auto px-4">
-    <h2 class="text-2xl font-semibold mb-8 text-white">Artículos Disponibles</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <div *ngFor="let producto of productosFiltrados" class="flex flex-col items-center bg-transparent rounded-xl p-6 border border-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-[#f05f02]/40 hover:scale-105 shadow-md rounded-2xl bg-white/5 backdrop-blur-lg animate-fade-in">
-        <img [src]="producto.imagen" [alt]="producto.nombre" class="w-full h-56 object-cover rounded-t-2xl" />
-        <div class="p-6 flex flex-col gap-3">
-          <h3 class="text-lg font-semibold tracking-wide text-white">{{producto.nombre}}</h3>
-          <span class="text-[#f05f02] font-bold text-2xl drop-shadow">${{producto.precio}}</span>
-          <p class="text-white/70 text-sm mb-2">{{producto.descripcion}}</p>
-          <button class="transition-all duration-300 ease-in-out hover:bg-white hover:text-[#f05f02] hover:shadow-[0_0_24px_4px_rgba(240,95,2,0.5)] hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#f05f02] text-white hover:text-white focus:text-white active:text-white">
+  <section class="max-w-[1320px] mx-auto px-3 sm:px-5 md:px-8">
+    <h2 class="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 text-white">Artículos Disponibles</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
+      <div *ngFor="let producto of productosFiltrados" class="flex flex-col items-center bg-transparent rounded-xl p-4 sm:p-6 border border-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-[#f05f02]/40 hover:scale-105 shadow-md rounded-2xl bg-white/5 backdrop-blur-lg animate-fade-in">
+        <img [src]="producto.imagen" [alt]="producto.nombre" [title]="producto.nombre" class="w-full h-48 sm:h-56 object-cover rounded-t-2xl" />
+        <div class="p-4 sm:p-6 flex flex-col gap-2 sm:gap-3 w-full">
+          <h3 class="text-base sm:text-lg font-semibold tracking-wide text-white">{{producto.nombre}}</h3>
+          <span class="text-[#f05f02] font-bold text-xl sm:text-2xl drop-shadow">${{producto.precio}}</span>
+          <p class="text-white/70 text-xs sm:text-sm mb-2">{{producto.descripcion}}</p>
+          <button class="mt-2 transition-all duration-300 ease-in-out hover:bg-white hover:text-[#f05f02] hover:shadow-[0_0_24px_4px_rgba(240,95,2,0.5)] hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#f05f02] text-white hover:text-white focus:text-white active:text-white">
             Ver más
           </button>
         </div>
@@ -65,7 +65,7 @@ Notas para expansión futura:
   </section>
 
   <!-- Nota/CTA final -->
-  <div class="text-sm text-white/60 mt-12 text-center max-w-3xl mx-auto px-4">
+  <div class="text-xs sm:text-sm text-white/60 mt-12 text-center max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
     ¿Sabías que puedes vivir el estilo BOOST y al mismo tiempo crear futuro? El 50% de nuestras ventas apoyan nuestra fundación para formar jóvenes talentos digitales.
   </div>
 </div> 
