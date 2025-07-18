@@ -23,7 +23,7 @@
         </div>
         <!-- CTA Desktop (solo desktop/tablet grande) y Botón de menú móvil -->
         <div class="flex flex-row items-center justify-end gap-4 sm:gap-6 md:gap-8 w-auto sm:w-full max-w-xs sm:max-w-none">
-          <a routerLink="/formularios" class="ml-0 sm:ml-4 mr-0 sm:mr-4 hidden md:inline-flex items-center bg-[#f05f02] text-white text-xs sm:text-sm px-3 sm:px-4 py-2 rounded-xl font-semibold uppercase whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-[#f05f02]" translate="no">
+          <a routerLink="/formularios" class="ml-0 sm:ml-4 mr-0 sm:mr-4 hidden md:inline-flex items-center bg-[#f05f02] text-white text-xs sm:text-sm px-3 sm:px-4 py-2 rounded-xl font-semibold uppercase whitespace-nowrap transition-all duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#f05f02] hover:bg-[#1C1A1C] hover:shadow-[0_0_20px_4px_rgba(180,180,180,0.5)] hover:-translate-y-1 hover:scale-105">
             RECIBE ASESORIA
             <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -82,24 +82,26 @@
           </p>
           
           <!-- Redes sociales con diseño moderno -->
-          <div class="flex flex-row justify-center lg:justify-start space-x-4">
-            <a href="https://www.facebook.com/share/1VYSxwFLUE/?mibextid=wwXIfr" target="_blank" 
-               class="w-10 h-10 sm:w-12 sm:h-12 bg-dark-800 hover:bg-accent rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-glow social-link">
-              <i class="fab fa-facebook text-lg sm:text-xl"></i>
-            </a>
-            <a href="https://www.instagram.com/boostdigitalstudio?igsh=MWh4bWVxcXpzbml5cA==" target="_blank" 
-               class="w-10 h-10 sm:w-12 sm:h-12 bg-dark-800 hover:bg-gradient-to-br hover:from-accent hover:to-accent-light rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-glow social-link">
-              <i class="fab fa-instagram text-lg sm:text-xl"></i>
-            </a>
-            <a href="#" target="_blank" 
-               class="w-10 h-10 sm:w-12 sm:h-12 bg-dark-800 hover:bg-accent rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-glow social-link">
-              <i class="fab fa-linkedin text-lg sm:text-xl"></i>
-            </a>
-            <a href="#" target="_blank" 
-               class="w-10 h-10 sm:w-12 sm:h-12 bg-dark-800 hover:bg-accent rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-glow social-link">
-              <i class="fab fa-twitter text-lg sm:text-xl"></i>
-            </a>
-          </div>
+          <ul class="flex list-none justify-center lg:justify-center items-center space-x-4 py-10">
+            <li class="relative bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md cursor-pointer transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg group hover:bg-[#1877f2] hover:shadow-[0_10px_10px_rgba(24,119,242,0.2)]">
+              <a href="https://www.facebook.com/share/1VYSxwFLUE/?mibextid=wwXIfr" target="_blank" rel="noopener" class="flex items-center justify-center w-full h-full">
+                <i class="fab fa-facebook w-6 h-6 text-gray-700 transition-colors duration-200 group-hover:text-white"></i>
+                <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-white text-gray-700 text-sm py-1 px-2 rounded opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-top-12 pointer-events-none shadow">Facebook</span>
+              </a>
+            </li>
+            <li class="relative bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md cursor-pointer transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg group hover:bg-[#1da1f2] hover:shadow-[0_10px_10px_rgba(29,161,242,0.2)]">
+              <a routerLink="/404" class="flex items-center justify-center w-full h-full">
+                <i class="fab fa-twitter w-6 h-6 text-gray-700 transition-colors duration-200 group-hover:text-white"></i>
+                <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-white text-gray-700 text-sm py-1 px-2 rounded opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-top-12 pointer-events-none shadow">Twitter</span>
+              </a>
+            </li>
+            <li class="relative bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md cursor-pointer transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg group hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-pink-500 hover:to-purple-600 hover:shadow-[0_10px_10px_rgba(228,64,95,0.2)]">
+              <a href="https://www.instagram.com/boostdigitalstudio?igsh=MWh4bWVxcXpzbml5cA==" target="_blank" rel="noopener" class="flex items-center justify-center w-full h-full">
+                <i class="fab fa-instagram w-6 h-6 text-gray-700 transition-colors duration-200 group-hover:text-white"></i>
+                <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-white text-gray-700 text-sm py-1 px-2 rounded opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-top-12 pointer-events-none shadow">Instagram</span>
+              </a>
+            </li>
+          </ul>
         </div>
         
         <!-- Columna 2: Enlaces rápidos -->
@@ -166,9 +168,9 @@
             &copy; 2025 BOOST AGENCY. Todos los derechos reservados.
           </p>
           <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 text-xs sm:text-sm items-center justify-center sm:justify-end">
-            <a href="#" class="text-light-400 hover:text-accent transition-colors footer-link">Política de Privacidad</a>
-            <a href="#" class="text-light-400 hover:text-accent transition-colors footer-link">Términos de Servicio</a>
-            <a href="#" class="text-light-400 hover:text-accent transition-colors footer-link">Cookies</a>
+            <a routerLink="/404" class="text-light-400 hover:text-accent transition-colors footer-link">Política de Privacidad</a>
+            <a routerLink="/404" class="text-light-400 hover:text-accent transition-colors footer-link">Términos de Servicio</a>
+            <a routerLink="/404" class="text-light-400 hover:text-accent transition-colors footer-link">Cookies</a>
           </div>
         </div>
       </div>

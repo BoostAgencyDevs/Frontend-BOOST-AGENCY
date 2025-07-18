@@ -10,6 +10,7 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { Error404Component } from './pages/error404/error404.component';
 
 /**
  * Configuración de rutas de la aplicación
@@ -37,8 +38,11 @@ const routes: Routes = [
   { path: 'el-futuro-es-ahora', loadChildren: () => import('./pages/futuro/futuro.module').then(m => m.FuturoModule) },
   { path: 'formularios', loadChildren: () => import('./pages/formularios/formularios.module').then(m => m.FormulariosModule) },
   
+  // Página de error 404
+  { path: '404', component: Error404Component },
+  
   // Ruta wildcard - maneja páginas no encontradas
-  { path: '**', redirectTo: '/inicio' }
+  { path: '**', redirectTo: '404' }
 ];
 
 /**
