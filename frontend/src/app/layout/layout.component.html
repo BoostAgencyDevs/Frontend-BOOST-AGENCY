@@ -3,9 +3,9 @@
   <!-- Header: Navegación moderna y profesional -->
   <header class="w-full bg-dark-950 lg:overflow-visible overflow-x-auto py-4 sm:py-6">
     <nav class="w-full">
-      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between h-auto sm:h-20 relative">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-row items-center justify-between h-auto sm:h-20 relative">
         <!-- Logo principal BOOST AGENCY -->
-        <a routerLink="/inicio" class="flex items-center flex-shrink-0 mb-4 sm:mb-0">
+        <a routerLink="/inicio" class="flex items-center flex-shrink-0 mb-0">
           <img src="assets/images/global/Logo_Principal.png" alt="BOOST AGENCY Logo" class="object-contain max-w-[120px]" />
         </a>
         <!-- Menú de navegación centrado (solo desktop/tablet grande) -->
@@ -22,15 +22,15 @@
           </div>
         </div>
         <!-- CTA Desktop (solo desktop/tablet grande) y Botón de menú móvil -->
-        <div class="flex flex-col sm:flex-row items-center justify-end gap-4 sm:gap-6 md:gap-8 w-full max-w-xs sm:max-w-none">
-          <a routerLink="/formularios" class="ml-0 sm:ml-4 mr-0 sm:mr-4 hidden md:inline-flex items-center bg-[#f05f02] text-white text-xs sm:text-sm px-3 sm:px-4 py-2 rounded-xl font-semibold uppercase whitespace-nowrap transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_16px_rgba(240,95,2,0.4)] focus:outline-none focus:ring-2 focus:ring-[#f05f02] animate-pulse" translate="no">
+        <div class="flex flex-row items-center justify-end gap-4 sm:gap-6 md:gap-8 w-auto sm:w-full max-w-xs sm:max-w-none">
+          <a routerLink="/formularios" class="ml-0 sm:ml-4 mr-0 sm:mr-4 hidden md:inline-flex items-center bg-[#f05f02] text-white text-xs sm:text-sm px-3 sm:px-4 py-2 rounded-xl font-semibold uppercase whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-[#f05f02]" translate="no">
             THE FUTURE IS NOW
             <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
           </a>
           <!-- Botón de menú móvil (hamburguesa) -->
-          <button class="lg:hidden relative sm:static right-4 top-4 sm:right-0 sm:top-0 p-2 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-dark-950 z-30"
+          <button class="lg:hidden p-2 text-light-50 hover:text-accent hover:bg-dark-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-dark-950 z-30"
                   (click)="toggleMobileMenu()" title="Abrir menú">
             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>

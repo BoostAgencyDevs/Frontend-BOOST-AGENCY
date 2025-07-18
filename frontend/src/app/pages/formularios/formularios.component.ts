@@ -17,7 +17,7 @@
  */
 
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormularioService } from '../../shared/services/formulario.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -59,23 +59,6 @@ export class FormulariosComponent {
   error2 = '';
 
   /**
-   * Validador personalizado para asegurar que el monto máximo no sea inferior al monto mínimo.
-   * @param control El FormGroup que contiene los controles 'min_amount' y 'max_amount'.
-   * @returns Un objeto de errores de validación si la condición no se cumple, o null si es válido.
-   */
-  minMaxValidator(control: AbstractControl): ValidationErrors | null {
-    const minAmount = control.get('min_amount')?.value;
-    const maxAmount = control.get('max_amount')?.value;
-
-    // Solo validar si ambos campos tienen valores numéricos
-    if (typeof minAmount === 'number' && typeof maxAmount === 'number' && maxAmount < minAmount) {
-      return { minMaxMismatch: true }; // Retorna un error si max_amount es menor que min_amount
-    }
-    return null; // Retorna null si es válido
-  }
-
-
-  /**
    * Constructor del componente
    * 
    * Inicializa ambos formularios con la estructura exacta requerida
@@ -95,10 +78,10 @@ export class FormulariosComponent {
         company: ['']  // Campo opcional
       }),
       budgetsData: this.fb.group({
-        min_amount: [null],
-        max_amount: [null],
+        min_amount: [0, Validators.required],
+        max_amount: [0, Validators.required],
         is_unsure: [false]
-      }, { validators: this.minMaxValidator }),
+      }),
       goalsData: this.fb.group({
         increase_sales: [false],
         boost_brand_visibility: [false],
@@ -162,58 +145,6 @@ export class FormulariosComponent {
         comment: ['']  // Comentarios opcionales
       })
     });
-  }
-
-  /**
-   * Maneja el evento de input para formatear el valor de los campos de monto.
-   * @param controlName El nombre del control del formulario ('min_amount' o 'max_amount').
-   * @param event El evento de input.
-   */
-  formatCurrency(controlName: 'min_amount' | 'max_amount', event: Event) {
-    const inputElement = event.target as HTMLInputElement;
-    let rawValue = inputElement.value.replace(/[^0-9]/g, ''); // Eliminar caracteres no numéricos
-    let numericValue = parseInt(rawValue, 10);
-    
-
-    if (isNaN(numericValue)) {
-      numericValue = 0; // Si no es un número válido, establecer como null
-    }
-
-    // Actualizar el valor del control del formulario con el número puro
-    this.form1.get(`budgetsData.${controlName}`)?.setValue(numericValue, { emitEvent: false });
-
-    // Formatear el valor para mostrar en el input
-    inputElement.value = this.formatColombianCurrency(numericValue);
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /**
-   * Formatea un valor numérico como moneda colombiana (COP).
-   * @param value El número a formatear.
-   * @returns El valor formateado como string.
-   */
-  formatColombianCurrency(value: number | null): string {
-    if (value === null || isNaN(value)) {
-      return '';
-    }
-    return new Intl.NumberFormat('es-CO', {
-      style: 'currency',
-      currency: 'COP',
-      minimumFractionDigits: 0, // No decimales para pesos colombianos
-      maximumFractionDigits: 0
-    }).format(value);
   }
 
   /**
