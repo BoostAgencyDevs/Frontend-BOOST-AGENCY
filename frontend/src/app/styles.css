@@ -1,0 +1,22 @@
+.boost-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  z-index: 99999;
+  background: #f05f02;
+  transition: width 0.5s cubic-bezier(.4,0,.2,1);
+}
+
+.card-pointer {
+  cursor: pointer;
+}
+
+.card-shadow-1 {
+  box-shadow: 0 0 48px 0 #f05f02cc;
+}
+
+.card-shadow-2 {
+  box-shadow: 0 0 36px 0 #f05f02aa;
+} 

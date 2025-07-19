@@ -6,85 +6,83 @@
   - Documentación en español en el .ts
 -->
 <div class="min-h-screen bg-black text-white p-4">
-  <!-- Formulario de Cotización -->
-  <section class="max-w-2xl mx-auto bg-white/5 rounded-xl p-6 mb-8 shadow-lg">
-    <h2 class="text-2xl font-bold mb-6 text-center">Cotización</h2>
-    <p class="text-center mb-6 text-gray-300">
-      Por favor, completa los campos a continuación para obtener tu cotización. Los campos marcados con * son obligatorios.
-      Usa el botón "Ver más" para desplegar opciones adicionales.
+  <!-- Formulario de Cotización -->
+  <section class="max-w-2xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl p-8 mb-10 shadow-2xl border border-white/10">
+    <h2 class="text-3xl font-extrabold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-[#f05f02] to-yellow-400 drop-shadow-lg">Cotización</h2>
+    <p class="text-center mb-8 text-gray-300 text-lg">
+      Por favor, completa los campos a continuación para obtener tu cotización. Los campos marcados con * son obligatorios.<br>
+      Usa el botón <span class="font-semibold text-[#f05f02]">"Ver más"</span> para desplegar opciones adicionales.
     </p>
-    <form [formGroup]="form1" (ngSubmit)="submitForm1()" class="space-y-6">
-      <!-- Datos personales -->
-      <div formGroupName="leadsData" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label class="block mb-1 font-medium">Nombres *</label>
-          <input formControlName="names" class="input-boost w-full" placeholder="Nombres">
-          <div *ngIf="form1.get('leadsData.names')?.invalid && form1.get('leadsData.names')?.touched" class="text-red-400 text-sm">Campo requerido</div>
-        </div>
-        <div>
-          <label class="block mb-1 font-medium">Apellidos *</label>
-          <input formControlName="lastnames" class="input-boost w-full" placeholder="Apellidos">
-          <div *ngIf="form1.get('leadsData.lastnames')?.invalid && form1.get('leadsData.lastnames')?.touched" class="text-red-400 text-sm">Campo requerido</div>
-        </div>
-        <div>
-          <label class="block mb-1 font-medium">Teléfono *</label>
-          <input formControlName="mobile" class="input-boost w-full" placeholder="Teléfono">
-          <div *ngIf="form1.get('leadsData.mobile')?.invalid && form1.get('leadsData.mobile')?.touched" class="text-red-400 text-sm">Campo requerido</div>
-        </div>
-        <div>
-          <label class="block mb-1 font-medium">Email *</label>
-          <input formControlName="email" class="input-boost w-full" placeholder="Email">
-          <div *ngIf="form1.get('leadsData.email')?.invalid && form1.get('leadsData.email')?.touched" class="text-red-400 text-sm">Campo requerido</div>
-        </div>
-        <div class="sm:col-span-2">
-          <label class="block mb-1 font-medium">Empresa</label>
-          <input formControlName="company" class="input-boost w-full" placeholder="Empresa">
-        </div>
-      </div>
-      <!-- Presupuesto -->
-      <div formGroupName="budgetsData">
-        <label class="block mb-2 font-medium">¿Tiene un presupuesto establecido?</label>
-        <div class="flex items-center gap-4 mb-4">
-          <label class="flex items-center gap-2">
-            <input type="radio" formControlName="has_budget" [value]="true" class="form-radio"> Sí
-          </label>
-          <label class="flex items-center gap-2">
-            <input type="radio" formControlName="has_budget" [value]="false" class="form-radio"> No
-          </label>
-        </div>
-        
-        <div *ngIf="form1.get('budgetsData.has_budget')?.value === true" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label class="block mb-1 font-medium">Monto mínimo</label>
-            <input type="text" formControlName="min_amount" class="input-boost no-arrows w-full" placeholder="Monto mínimo" (input)="formatCurrency('min_amount', $event)">
-          </div>
-          <div>
-            <label class="block mb-1 font-medium">Monto máximo</label>
-            <input type="text" formControlName="max_amount" class="input-boost no-arrows w-full" placeholder="Monto máximo" (input)="formatCurrency('max_amount', $event)">
-            <div *ngIf="form1.get('budgetsData')?.errors?.['minMaxMismatch'] && form1.get('budgetsData.max_amount')?.touched" class="text-red-400 text-sm">
-              El monto máximo no puede ser inferior al monto mínimo.
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Objetivos -->
-      <div formGroupName="goalsData">
-        <label class="block mb-2 font-medium">Objetivos</label>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          <label class="flex items-center gap-2"><input type="checkbox" formControlName="increase_sales">Aumentar ventas</label>
-          <label class="flex items-center gap-2"><input type="checkbox" formControlName="boost_brand_visibility">Visibilidad de marca</label>
-          <label class="flex items-center gap-2"><input type="checkbox" formControlName="generate_leads">Generar leads</label>
-          <label class="flex items-center gap-2"><input type="checkbox" formControlName="launch_new_product">Lanzar producto</label>
-          <label class="flex items-center gap-2"><input type="checkbox" formControlName="improve_digital_positioning">Mejorar posicionamiento</label>
-        </div>
-        <input formControlName="other" class="input-boost w-full mt-2" placeholder="Otro objetivo">
-      </div>
-
+    <form [formGroup]="form1" (ngSubmit)="submitForm1()" class="space-y-8">
+      <!-- Datos personales -->
+      <div formGroupName="leadsData" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <label class="block mb-1 font-semibold text-gray-200">Nombres <span class="text-[#f05f02]">*</span></label>
+          <input formControlName="names" class="input-boost w-full" placeholder="Nombres">
+          <div *ngIf="form1.get('leadsData.names')?.invalid && form1.get('leadsData.names')?.touched" class="text-red-400 text-xs mt-1">Campo requerido</div>
+        </div>
+        <div>
+          <label class="block mb-1 font-semibold text-gray-200">Apellidos <span class="text-[#f05f02]">*</span></label>
+          <input formControlName="lastnames" class="input-boost w-full" placeholder="Apellidos">
+          <div *ngIf="form1.get('leadsData.lastnames')?.invalid && form1.get('leadsData.lastnames')?.touched" class="text-red-400 text-xs mt-1">Campo requerido</div>
+        </div>
+        <div>
+          <label class="block mb-1 font-semibold text-gray-200">Teléfono <span class="text-[#f05f02]">*</span></label>
+          <input formControlName="mobile" class="input-boost w-full" placeholder="Teléfono">
+          <div *ngIf="form1.get('leadsData.mobile')?.invalid && form1.get('leadsData.mobile')?.touched" class="text-red-400 text-xs mt-1">Campo requerido</div>
+        </div>
+        <div>
+          <label class="block mb-1 font-semibold text-gray-200">Email <span class="text-[#f05f02]">*</span></label>
+          <input formControlName="email" class="input-boost w-full" placeholder="Email">
+          <div *ngIf="form1.get('leadsData.email')?.invalid && form1.get('leadsData.email')?.touched" class="text-red-400 text-xs mt-1">Campo requerido</div>
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block mb-1 font-semibold text-gray-200">Empresa</label>
+          <input formControlName="company" class="input-boost w-full" placeholder="Empresa">
+        </div>
+      </div>
+      <!-- Presupuesto -->
+      <div formGroupName="budgetsData" class="bg-white/5 rounded-lg p-4 border border-white/10">
+        <label class="block mb-2 font-semibold text-gray-200">¿Tiene un presupuesto establecido?</label>
+        <div class="flex items-center gap-6 mb-4">
+          <label class="flex items-center gap-2 text-gray-300">
+            <input type="radio" formControlName="has_budget" [value]="true" class="form-radio accent-[#f05f02]"> Sí
+          </label>
+          <label class="flex items-center gap-2 text-gray-300">
+            <input type="radio" formControlName="has_budget" [value]="false" class="form-radio accent-[#f05f02]"> No
+          </label>
+        </div>
+        <div *ngIf="form1.get('budgetsData.has_budget')?.value === true" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block mb-1 font-semibold text-gray-200">Monto mínimo</label>
+            <input type="text" formControlName="min_amount" class="input-boost no-arrows w-full" placeholder="Monto mínimo" (input)="formatCurrency('min_amount', $event)">
+          </div>
+          <div>
+            <label class="block mb-1 font-semibold text-gray-200">Monto máximo</label>
+            <input type="text" formControlName="max_amount" class="input-boost no-arrows w-full" placeholder="Monto máximo" (input)="formatCurrency('max_amount', $event)">
+            <div *ngIf="form1.get('budgetsData')?.errors?.['minMaxMismatch'] && form1.get('budgetsData.max_amount')?.touched" class="text-red-400 text-xs mt-1">
+              El monto máximo no puede ser inferior al monto mínimo.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Objetivos -->
+      <div formGroupName="goalsData" class="bg-white/5 rounded-lg p-4 border border-white/10">
+        <label class="block mb-2 font-semibold text-gray-200">Objetivos</label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="increase_sales" class="accent-[#f05f02]">Aumentar ventas</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="boost_brand_visibility" class="accent-[#f05f02]">Visibilidad de marca</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="generate_leads" class="accent-[#f05f02]">Generar leads</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="launch_new_product" class="accent-[#f05f02]">Lanzar producto</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="improve_digital_positioning" class="accent-[#f05f02]">Mejorar posicionamiento</label>
+        </div>
+        <input formControlName="other" class="input-boost w-full mt-2" placeholder="Otro objetivo">
+      </div>
       <!-- Sección condicional para el resto del formulario -->
       <div *ngIf="showMoreFields" class="space-y-6">
         <!-- Sitios web -->
-        <div formGroupName="websitesData">
-          <label class="block mb-2 font-medium flex items-center">
+        <div formGroupName="websitesData" class="bg-white/5 rounded-lg p-4 border border-white/10">
+          <label class="block mb-2 font-semibold flex items-center text-gray-200">
             Sitios web
             <span class="relative ml-2 cursor-pointer text-gray-400 hover:text-white"
                   (mouseenter)="showHelp('websites')" (mouseleave)="hideHelp('websites')">
@@ -108,8 +106,8 @@
           </div>
         </div>
         <!-- Redes sociales -->
-        <div formGroupName="social_mediaData">
-          <label class="block mb-2 font-medium flex items-center">
+        <div formGroupName="social_mediaData" class="bg-white/5 rounded-lg p-4 border border-white/10">
+          <label class="block mb-2 font-semibold flex items-center text-gray-200">
             Redes sociales
             <span class="relative ml-2 cursor-pointer text-gray-400 hover:text-white"
                   (mouseenter)="showHelp('social_media')" (mouseleave)="hideHelp('social_media')">
@@ -122,194 +120,200 @@
           </label>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label class="block mb-1 font-medium">Facebook</label>
+              <label class="block mb-1 font-semibold text-gray-200">Facebook</label>
               <input formControlName="facebook" class="input-boost w-full" placeholder="Facebook">
             </div>
             <div>
-              <label class="block mb-1 font-medium">Twitter</label>
+              <label class="block mb-1 font-semibold text-gray-200">Twitter</label>
               <input formControlName="twitter" class="input-boost w-full" placeholder="Twitter">
             </div>
             <div>
-              <label class="block mb-1 font-medium">Instagram</label>
+              <label class="block mb-1 font-semibold text-gray-200">Instagram</label>
               <input formControlName="instagram" class="input-boost w-full" placeholder="Instagram">
             </div>
             <div>
-              <label class="block mb-1 font-medium">LinkedIn</label>
+              <label class="block mb-1 font-semibold text-gray-200">LinkedIn</label>
               <input formControlName="linkedin" class="input-boost w-full" placeholder="LinkedIn">
             </div>
             <div>
-              <label class="block mb-1 font-medium">TikTok</label>
+              <label class="block mb-1 font-semibold text-gray-200">TikTok</label>
               <input formControlName="tiktok" class="input-boost w-full" placeholder="TikTok">
             </div>
             <div>
-              <label class="block mb-1 font-medium">YouTube</label>
+              <label class="block mb-1 font-semibold text-gray-200">YouTube</label>
               <input formControlName="youtube" class="input-boost w-full" placeholder="YouTube">
             </div>
           </div>
         </div>
         <!-- Servicios -->
-        <div formGroupName="servicesData">
-          <label class="block mb-2 font-medium">Servicios</label>
+        <div formGroupName="servicesData" class="bg-white/5 rounded-lg p-4 border border-white/10">
+          <label class="block mb-2 font-semibold text-gray-200">Servicios</label>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <label class="flex items-center gap-2"><input type="checkbox" formControlName="web_design">Diseño web</label>
-            <label class="flex items-center gap-2"><input type="checkbox" formControlName="branding">Branding</label>
-            <label class="flex items-center gap-2"><input type="checkbox" formControlName="social_media_management">Gestión de redes</label>
-            <label class="flex items-center gap-2"><input type="checkbox" formControlName="google_ads">Google Ads</label>
-            <label class="flex items-center gap-2"><input type="checkbox" formControlName="social_media_advertising">Publicidad en redes</label>
-            <label class="flex items-center gap-2"><input type="checkbox" formControlName="sales_funnels">Embudos de ventas</label>
-            <label class="flex items-center gap-2"><input type="checkbox" formControlName="automation">Automatización</label>
-            <label class="flex items-center gap-2"><input type="checkbox" formControlName="crm">CRM</label>
-            <label class="flex items-center gap-2"><input type="checkbox" formControlName="chatbot">Chatbot</label>
+            <label class="flex items-center gap-2"><input type="checkbox" formControlName="web_design" class="accent-[#f05f02]">Diseño web</label>
+            <label class="flex items-center gap-2"><input type="checkbox" formControlName="branding" class="accent-[#f05f02]">Branding</label>
+            <label class="flex items-center gap-2"><input type="checkbox" formControlName="social_media_management" class="accent-[#f05f02]">Gestión de redes</label>
+            <label class="flex items-center gap-2"><input type="checkbox" formControlName="google_ads" class="accent-[#f05f02]">Google Ads</label>
+            <label class="flex items-center gap-2"><input type="checkbox" formControlName="social_media_advertising" class="accent-[#f05f02]">Publicidad en redes</label>
+            <label class="flex items-center gap-2"><input type="checkbox" formControlName="sales_funnels" class="accent-[#f05f02]">Embudos de ventas</label>
+            <label class="flex items-center gap-2"><input type="checkbox" formControlName="automation" class="accent-[#f05f02]">Automatización</label>
+            <label class="flex items-center gap-2"><input type="checkbox" formControlName="crm" class="accent-[#f05f02]">CRM</label>
+            <label class="flex items-center gap-2"><input type="checkbox" formControlName="chatbot" class="accent-[#f05f02]">Chatbot</label>
           </div>
           <input formControlName="other" class="input-boost w-full mt-2" placeholder="Otro servicio">
         </div>
         <!-- Comentarios -->
-        <div formGroupName="commentsQuoteData">
-          <label class="block mb-1 font-medium">Comentarios</label>
+        <div formGroupName="commentsQuoteData" class="bg-white/5 rounded-lg p-4 border border-white/10">
+          <label class="block mb-1 font-semibold text-gray-200">Comentarios</label>
           <textarea formControlName="comment" class="input-boost w-full" placeholder="Comentarios adicionales"></textarea>
         </div>
       </div>
-
       <!-- Botón para desplegar/ocultar el resto del formulario (movido al final de la sección condicional) -->
       <div class="text-center mt-4">
-        <button type="button" (click)="toggleMoreFields()" class="btn-boost px-6 py-2 rounded-md">
+        <button type="button" (click)="toggleMoreFields()" class="w-60 h-14 px-6 py-2 flex items-center justify-center rounded-full bg-[#1C1A1C] text-white font-semibold text-base transition-all duration-500 ease-in-out border border-transparent hover:bg-gradient-to-tr hover:from-[#f05f02] hover:to-orange-600 hover:shadow-[0_0_20px_4px_rgba(240,95,2,0.6)] hover:-translate-y-1 hover:scale-105 hover:text-white focus:text-white active:text-white mx-auto">
           {{ showMoreFields ? 'Ver menos' : 'Ver más' }}
         </button>
       </div>
-
-      <button type="submit" [disabled]="loading1" class="btn-boost w-full mt-6 py-3 text-lg">Enviar Cotización</button>
-      <div *ngIf="error1" class="text-red-400 text-center mt-2">{{error1}}</div>
-      <div *ngIf="message1" class="text-green-400 text-center mt-2">{{message1}}</div>
-    </form>
-  </section>
-
-  <!-- Formulario de Asesoría, solo visible tras éxito del primero -->
-  <section *ngIf="form1Success" class="max-w-2xl mx-auto bg-white/5 rounded-xl p-6 mb-8 shadow-lg">
-    <h2 class="text-2xl font-bold mb-6 text-center">Asesoría Gratuita</h2>
-    <form [formGroup]="form2" (ngSubmit)="submitForm2()" class="space-y-6">
-      <!-- Datos personales -->
-      <div formGroupName="leadsData" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label class="block mb-1 font-medium">Nombres *</label>
-          <input formControlName="names" class="input-boost w-full" placeholder="Nombres">
-          <div *ngIf="form2.get('leadsData.names')?.invalid && form2.get('leadsData.names')?.touched" class="text-red-400 text-sm">Campo requerido</div>
-        </div>
-        <div>
-          <label class="block mb-1 font-medium">Apellidos *</label>
-          <input formControlName="lastnames" class="input-boost w-full" placeholder="Apellidos">
-          <div *ngIf="form2.get('leadsData.lastnames')?.invalid && form2.get('leadsData.lastnames')?.touched" class="text-red-400 text-sm">Campo requerido</div>
-        </div>
-        <div>
-          <label class="block mb-1 font-medium">Teléfono *</label>
-          <input formControlName="mobile" class="input-boost w-full" placeholder="Teléfono">
-          <div *ngIf="form2.get('leadsData.mobile')?.invalid && form2.get('leadsData.mobile')?.touched" class="text-red-400 text-sm">Campo requerido</div>
-        </div>
-        <div>
-          <label class="block mb-1 font-medium">Email *</label>
-          <input formControlName="email" class="input-boost w-full" placeholder="Email">
-          <div *ngIf="form2.get('leadsData.email')?.invalid && form2.get('leadsData.email')?.touched" class="text-red-400 text-sm">Campo requerido</div>
-        </div>
-        <div class="sm:col-span-2">
-          <label class="block mb-1 font-medium">Empresa</label>
-          <input formControlName="company" class="input-boost w-full" placeholder="Empresa">
-        </div>
-      </div>
-      <!-- Retos -->
-      <div formGroupName="challengesData">
-        <label class="block mb-2 font-medium">Retos</label>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          <label class="flex items-center gap-2"><input type="checkbox" formControlName="low_sales">Bajas ventas</label>
-          <label class="flex items-center gap-2"><input type="checkbox" formControlName="no_digital_presence">Sin presencia digital</label>
-          <label class="flex items-center gap-2"><input type="checkbox" formControlName="no_advertising_knowledge">Sin conocimiento de publicidad</label>
-          <label class="flex items-center gap-2"><input type="checkbox" formControlName="no_strategy">Sin estrategia</label>
-        </div>
-        <input formControlName="other" class="input-boost w-full mt-2" placeholder="Otro reto">
-      </div>
-      <!-- Presencia digital -->
-      <div formGroupName="digitalPresenceData">
-        <label class="block mb-2 font-medium">Presencia digital</label>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-          <label class="flex items-center gap-2"><input type="checkbox" formControlName="has_website">Tengo sitio web</label>
-          <label class="flex items-center gap-2"><input type="checkbox" formControlName="has_social_media">Tengo redes sociales</label>
-          <label class="flex items-center gap-2"><input type="checkbox" formControlName="wants_new_start">Quiero empezar desde cero</label>
-        </div>
-        <input formControlName="other" class="input-boost w-full mt-2" placeholder="Otro reto">
-      </div>
-      <!-- Comentarios -->
-      <div formGroupName="commentsSupportData">
-        <label class="block mb-1 font-medium">Comentarios</label>
-        <textarea formControlName="comment" class="input-boost w-full" placeholder="Comentarios adicionales"></textarea>
-      </div>
-      <button type="submit" [disabled]="loading2" class="btn-boost w-full mt-6 py-3 text-lg">Enviar Asesoría</button>
-      <div *ngIf="error2" class="text-red-400 text-center mt-2">{{error2}}</div>
-      <div *ngIf="message2" class="text-green-400 text-center mt-2">{{message2}}</div>
-    </form>
-  </section>
+      <button type="submit" [disabled]="loading1" class="w-60 h-14 px-6 py-2 flex items-center justify-center rounded-full bg-[#1C1A1C] text-white font-semibold text-base transition-all duration-500 ease-in-out border border-transparent hover:bg-gradient-to-tr hover:from-[#f05f02] hover:to-orange-600 hover:shadow-[0_0_20px_4px_rgba(240,95,2,0.6)] hover:-translate-y-1 hover:scale-105 hover:text-white focus:text-white active:text-white w-full mt-8">Enviar Cotización</button>
+      <div *ngIf="error1" class="text-red-400 text-center mt-2">{{error1}}</div>
+      <div *ngIf="message1" class="text-green-400 text-center mt-2">{{message1}}</div>
+    </form>
+  </section>
+  <!-- Formulario de Asesoría, solo visible tras éxito del primero -->
+  <section *ngIf="form1Success" class="max-w-2xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl p-8 mb-10 shadow-2xl border border-white/10">
+    <h2 class="text-3xl font-extrabold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-[#f05f02] to-yellow-400 drop-shadow-lg">Asesoría Gratuita</h2>
+    <form [formGroup]="form2" (ngSubmit)="submitForm2()" class="space-y-8">
+      <!-- Datos personales -->
+      <div formGroupName="leadsData" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <label class="block mb-1 font-semibold text-gray-200">Nombres <span class="text-[#f05f02]">*</span></label>
+          <input formControlName="names" class="input-boost w-full" placeholder="Nombres">
+          <div *ngIf="form2.get('leadsData.names')?.invalid && form2.get('leadsData.names')?.touched" class="text-red-400 text-xs mt-1">Campo requerido</div>
+        </div>
+        <div>
+          <label class="block mb-1 font-semibold text-gray-200">Apellidos <span class="text-[#f05f02]">*</span></label>
+          <input formControlName="lastnames" class="input-boost w-full" placeholder="Apellidos">
+          <div *ngIf="form2.get('leadsData.lastnames')?.invalid && form2.get('leadsData.lastnames')?.touched" class="text-red-400 text-xs mt-1">Campo requerido</div>
+        </div>
+        <div>
+          <label class="block mb-1 font-semibold text-gray-200">Teléfono <span class="text-[#f05f02]">*</span></label>
+          <input formControlName="mobile" class="input-boost w-full" placeholder="Teléfono">
+          <div *ngIf="form2.get('leadsData.mobile')?.invalid && form2.get('leadsData.mobile')?.touched" class="text-red-400 text-xs mt-1">Campo requerido</div>
+        </div>
+        <div>
+          <label class="block mb-1 font-semibold text-gray-200">Email <span class="text-[#f05f02]">*</span></label>
+          <input formControlName="email" class="input-boost w-full" placeholder="Email">
+          <div *ngIf="form2.get('leadsData.email')?.invalid && form2.get('leadsData.email')?.touched" class="text-red-400 text-xs mt-1">Campo requerido</div>
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block mb-1 font-semibold text-gray-200">Empresa</label>
+          <input formControlName="company" class="input-boost w-full" placeholder="Empresa">
+        </div>
+      </div>
+      <!-- Retos -->
+      <div formGroupName="challengesData" class="bg-white/5 rounded-lg p-4 border border-white/10">
+        <label class="block mb-2 font-semibold text-gray-200">Retos</label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="low_sales" class="accent-[#f05f02]">Bajas ventas</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="no_digital_presence" class="accent-[#f05f02]">Sin presencia digital</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="no_advertising_knowledge" class="accent-[#f05f02]">Sin conocimiento de publicidad</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="no_strategy" class="accent-[#f05f02]">Sin estrategia</label>
+        </div>
+        <input formControlName="other" class="input-boost w-full mt-2" placeholder="Otro reto">
+      </div>
+      <!-- Presencia digital -->
+      <div formGroupName="digitalPresenceData" class="bg-white/5 rounded-lg p-4 border border-white/10">
+        <label class="block mb-2 font-semibold text-gray-200">Presencia digital</label>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="has_website" class="accent-[#f05f02]">Tengo sitio web</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="has_social_media" class="accent-[#f05f02]">Tengo redes sociales</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="wants_new_start" class="accent-[#f05f02]">Quiero empezar desde cero</label>
+        </div>
+        <input formControlName="other" class="input-boost w-full mt-2" placeholder="Otro reto">
+      </div>
+      <!-- Comentarios -->
+      <div formGroupName="commentsSupportData" class="bg-white/5 rounded-lg p-4 border border-white/10">
+        <label class="block mb-1 font-semibold text-gray-200">Comentarios</label>
+        <textarea formControlName="comment" class="input-boost w-full" placeholder="Comentarios adicionales"></textarea>
+      </div>
+      <button type="submit" [disabled]="loading2" class="w-60 h-14 px-6 py-2 flex items-center justify-center rounded-full bg-[#1C1A1C] text-white font-semibold text-base transition-all duration-500 ease-in-out border border-transparent hover:bg-gradient-to-tr hover:from-[#f05f02] hover:to-orange-600 hover:shadow-[0_0_20px_4px_rgba(240,95,2,0.6)] hover:-translate-y-1 hover:scale-105 hover:text-white focus:text-white active:text-white w-full mt-8">Enviar Asesoría</button>
+      <div *ngIf="error2" class="text-red-400 text-center mt-2">{{error2}}</div>
+      <div *ngIf="message2" class="text-green-400 text-center mt-2">{{message2}}</div>
+    </form>
+  </section>
 </div>
 
 <!--
-  .input-boost: bg-white/10, border, rounded, text-white, focus:ring-[#f05f02], etc.
-  .btn-boost: botón principal de la marca
+  .input-boost: bg-white/10, border, rounded, text-white, focus:ring-[#f05f02], etc.
+  .btn-boost: botón principal de la marca
 -->
 <style>
   /* Estilos básicos para input-boost para asegurar visibilidad */
   .input-boost {
-    background-color: rgba(255, 255, 255, 0.1); /* bg-white/10 */
-    border: 1px solid #4a5568; /* border-gray-700 */
-    border-radius: 0.375rem; /* rounded-md */
-    padding: 0.5rem 1rem; /* px-4 py-2 */
-    color: #ffffff; /* text-white */
-    outline: none; /* focus:outline-none */
+    background-color: rgba(255, 255, 255, 0.13); /* bg-white/10 mejorado */
+    border: 1.5px solid #f05f02; /* Borde naranja boost */
+    border-radius: 0.5rem; /* rounded-lg */
+    padding: 0.6rem 1.1rem; /* px-4 py-2 mejorado */
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px 0 rgba(240,95,2,0.07);
   }
-
   .input-boost:focus {
-    box-shadow: 0 0 0 2px rgba(240, 95, 2, 0.5); /* focus:ring-2 con color personalizado */
-    border-color: #f05f02; /* color del borde al enfocar */
+    box-shadow: 0 0 0 3px rgba(240, 95, 2, 0.18);
+    border-color: #f05f02;
+    background-color: rgba(255,255,255,0.18);
   }
-
+  .input-boost::placeholder {
+    color: #fbbf24;
+    opacity: 0.8;
+    font-weight: 400;
+  }
   /* Estilos para el botón principal */
   .btn-boost {
-    background-color: #f05f02; /* Color principal de la marca */
-    color: #ffffff;
+    background: linear-gradient(90deg, #f05f02 0%, #fbbf24 100%);
+    color: #fff;
     font-weight: bold;
-    border-radius: 0.375rem; /* rounded-md */
-    transition: background-color 0.2s ease-in-out;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.01em;
+    box-shadow: 0 4px 16px 0 rgba(240,95,2,0.13);
+    border: none;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   }
-
   .btn-boost:hover {
-    background-color: #d04e01; /* Tono más oscuro al pasar el ratón */
+    background: linear-gradient(90deg, #d04e01 0%, #fbbf24 100%);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 24px 0 rgba(240,95,2,0.18);
   }
-
   .btn-boost:disabled {
-    background-color: #4a5568; /* bg-gray-700 */
+    background: #4a5568;
+    color: #bbb;
     cursor: not-allowed;
+    box-shadow: none;
   }
-
   /* Estilos para radio buttons */
   .form-radio {
-    /* Personaliza el tamaño y color del radio button si es necesario */
     width: 1.25rem;
     height: 1.25rem;
-    accent-color: #f05f02; /* Color de acento para el radio button */
+    accent-color: #f05f02;
   }
-
   /* Ocultar las flechas de los inputs de tipo number en navegadores webkit (Chrome, Safari) */
   input[type="number"]::-webkit-outer-spin-button,
   input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-
   /* Ocultar las flechas de los inputs de tipo number en Firefox */
   input[type="number"] {
     -moz-appearance: textfield;
   }
-
   /* Clase para aplicar a los inputs que queremos sin flechas */
   .no-arrows {
-    -webkit-appearance: none; /* Para Webkit */
-    -moz-appearance: textfield; /* Para Firefox */
-    appearance: none; /* Estándar */
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: none;
   }
+  .ver-mas-btn { display: none; } /* Eliminar el botón personalizado anterior si existe */
 </style>
 
