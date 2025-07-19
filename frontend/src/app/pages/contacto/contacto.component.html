@@ -1,7 +1,10 @@
 <!-- CONTACTO BOOST AGENCY -->
 <!--
-Notas para expansión futura:
-- Integrar backend para envío real de mensajes
+Componente de Contacto para Boost Agency.
+Permite a los usuarios enviar mensajes a través de un formulario.
+- Utiliza formularios reactivos de Angular para la gestión de datos y validaciones.
+- Muestra mensajes de éxito/error y estados de carga.
+- Diseño profesional, limpio y responsive con Tailwind CSS.
 -->
 
 <div class="min-h-screen bg-black text-white font-montserrat flex flex-col justify-between animate-fade-in">
@@ -14,26 +17,57 @@ Notas para expansión futura:
   <!-- Contenedor principal -->
   <section class="flex flex-col md:flex-row gap-8 max-w-[1320px] mx-auto w-full px-3 sm:px-5 md:px-8 mb-16 animate-fade-in">
     <!-- Formulario -->
-    <form class="flex-1 bg-white/5 rounded-xl p-4 sm:p-6 shadow-lg flex flex-col gap-4 animate-slide-up">
+    <!-- Se añade [formGroup] y (ngSubmit) para vincular con el formulario reactivo -->
+    <form [formGroup]="contactForm" (ngSubmit)="submitContactForm()" class="flex-1 bg-white/5 rounded-xl p-4 sm:p-6 shadow-lg flex flex-col gap-4 animate-slide-up">
       <label class="flex flex-col text-left gap-1">
-        <span class="font-semibold text-sm sm:text-base">Nombre</span>
-        <input type="text" placeholder="Tu nombre" class="rounded-xl px-3 sm:px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all text-sm sm:text-base" required />
+        <span class="font-semibold text-sm sm:text-base">Nombre *</span>
+        <!-- Se añade formControlName para vincular con el control 'names' -->
+        <input type="text" formControlName="names" placeholder="Su nombre" class="rounded-xl px-3 sm:px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all text-sm sm:text-base" required />
+        <div *ngIf="contactForm.get('names')?.invalid && contactForm.get('names')?.touched" class="text-red-400 text-sm">
+          Nombre es requerido.
+        </div>
       </label>
       <label class="flex flex-col text-left gap-1">
-        <span class="font-semibold text-sm sm:text-base">Correo</span>
-        <input type="email" placeholder="tucorreo@email.com" class="rounded-xl px-3 sm:px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all text-sm sm:text-base" required />
+        <span class="font-semibold text-sm sm:text-base">Apellido *</span>
+        <!-- Se añade formControlName para vincular con el control 'lastnames' -->
+        <input type="text" formControlName="lastnames" placeholder="Su apellido" class="rounded-xl px-3 sm:px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all text-sm sm:text-base" required />
+        <div *ngIf="contactForm.get('lastnames')?.invalid && contactForm.get('lastnames')?.touched" class="text-red-400 text-sm">
+          Apellido es requerido.
+        </div>
       </label>
       <label class="flex flex-col text-left gap-1">
-        <span class="font-semibold text-sm sm:text-base">Teléfono <span class="text-white/50 text-xs">(opcional)</span></span>
-        <input type="tel" placeholder="Ej: +57 301 123 4567" class="rounded-xl px-3 sm:px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all text-sm sm:text-base" />
+        <span class="font-semibold text-sm sm:text-base">Correo *</span>
+        <!-- Se añade formControlName para vincular con el control 'email' -->
+        <input type="email" formControlName="email" placeholder="micorreo@email.com" class="rounded-xl px-3 sm:px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all text-sm sm:text-base" required />
+        <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="text-red-400 text-sm">
+          <span *ngIf="contactForm.get('email')?.errors?.['required']">Correo es requerido.</span>
+          <span *ngIf="contactForm.get('email')?.errors?.['email']">Formato de correo inválido.</span>
+        </div>
+      </label>
+      <label class="flex flex-col text-left gap-1">
+        <span class="font-semibold text-sm sm:text-base">Teléfono *</span>
+        <!-- Se añade formControlName para vincular con el control 'mobile' -->
+        <input type="tel" formControlName="mobile" placeholder="Ej: +57 301 123 4567" class="rounded-xl px-3 sm:px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all text-sm sm:text-base" required />
+        <div *ngIf="contactForm.get('mobile')?.invalid && contactForm.get('mobile')?.touched" class="text-red-400 text-sm">
+          <span *ngIf="contactForm.get('mobile')?.errors?.['required']">Teléfono es requerido.</span>
+          <span *ngIf="contactForm.get('mobile')?.errors?.['minlength']">Mínimo 7 dígitos.</span>
+        </div>
+      </label>
+      <label class="flex flex-col text-left gap-1">
+        <span class="font-semibold text-sm sm:text-base">Compañia <span class="text-white/50 text-xs">(opcional)</span></span>
+        <!-- Se añade formControlName para vincular con el control 'company' -->
+        <input type="text" formControlName="company" placeholder="Ej: Compañía S.A.S." class="rounded-xl px-3 sm:px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all text-sm sm:text-base" />
       </label>
       <label class="flex flex-col text-left gap-1">
         <span class="font-semibold text-sm sm:text-base">Mensaje</span>
-        <textarea rows="4" placeholder="Escribe tu mensaje..." class="rounded-xl px-3 sm:px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all resize-none text-sm sm:text-base" required></textarea>
+        <!-- Se añade formControlName para vincular con el control 'message' -->
+        <textarea rows="4" formControlName="message" placeholder="Escribe su mensaje..." class="rounded-xl px-3 sm:px-4 py-2 bg-black/80 border border-white/20 text-white placeholder:text-white/50 focus:border-[#f05f02] focus:outline-none transition-all resize-none text-sm sm:text-base"></textarea>
       </label>
-      <button type="submit" class="w-60 h-14 px-6 py-2 rounded-full flex items-center justify-center bg-[#1C1A1C] text-white font-semibold text-base transition-all duration-500 ease-in-out border border-transparent hover:bg-gradient-to-tr hover:from-[#f05f02] hover:to-orange-600 hover:shadow-[0_0_20px_4px_rgba(240,95,2,0.6)] hover:-translate-y-1 hover:scale-105 hover:text-white focus:text-white active:text-white mt-2 w-full">
-        Enviar mensaje
+      <button type="submit" [disabled]="loading" class="btn-boost mt-2 w-full">
+        {{ loading ? 'Enviando...' : 'Enviar mensaje' }}
       </button>
+      <div *ngIf="error" class="text-red-400 text-center mt-2">{{ error }}</div>
+      <div *ngIf="message" class="text-green-400 text-center mt-2">{{ message }}</div>
     </form>
 
     <!-- Información de contacto -->
@@ -86,4 +120,25 @@ Notas para expansión futura:
       </nav>
     </div>
   </footer>
-</div> 
+</div>
+
+<style>
+  /* Estilos para el botón principal */
+  .btn-boost {
+    background-color: #f05f02; /* Color principal de la marca */
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 0.375rem; /* rounded-md */
+    padding: 0.75rem 1.5rem; /* py-3 px-6 */
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .btn-boost:hover {
+    background-color: #d04e01; /* Tono más oscuro al pasar el ratón */
+  }
+
+  .btn-boost:disabled {
+    background-color: #4a5568; /* bg-gray-700 */
+    cursor: not-allowed;
+  }
+</style>
