@@ -1,8 +1,8 @@
 /**
- * @fileoverview Módulo de contacto de Boost Agency
+ * @fileoverview Módulo de formularios de Boost Agency
  * 
- * Este módulo maneja la página de contacto de la empresa,
- * proporcionando información de contacto y formularios de comunicación.
+ * Este módulo maneja todos los formularios de la aplicación,
+ * incluyendo formularios de contacto, cotización y asesoría.
  * 
  * @author Boost Agency Development Team
  * @version 1.0.0
@@ -10,24 +10,35 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 import { ContactoComponent } from './contacto.component';
 
 /**
- * Módulo de contacto
+ * Rutas del módulo de formularios
+ * 
+ * Configuración de enrutamiento específica para este módulo
+ */
+const routes: Routes = [
+  { path: '', component: ContactoComponent }  // Ruta por defecto
+];
+
+/**
+ * Módulo de formularios
  * 
  * Configura:
- * - Componente principal de contacto
+ * - Componente principal de formularios
+ * - Módulos necesarios para formularios reactivos
  * - Enrutamiento específico del módulo
- * - Módulos necesarios para funcionalidad básica
  */
 @NgModule({
   declarations: [
     ContactoComponent  // Componente principal del módulo
   ],
   imports: [
-    CommonModule,  // Directivas comunes de Angular
-    RouterModule.forChild([{ path: '', component: ContactoComponent }])  // Enrutamiento específico
+    CommonModule,         // Directivas comunes de Angular
+    ReactiveFormsModule,  // Para formularios reactivos
+    RouterModule.forChild(routes)  // Enrutamiento específico del módulo
   ]
 })
-export class ContactoModule { }
+export class ContactoModule {} 
