@@ -34,7 +34,7 @@ export class ContactoComponent {
   /** Mensaje de error si el envío falla */
   error = '';
 
-  constructor(private fb: FormBuilder, private contactoService: ContactoService) {
+  constructor(private fb: FormBuilder, private ContactoService: ContactoService) {
     // Inicialización del formulario de contacto
     this.contactForm = this.fb.group({
       names: ['', Validators.required],
@@ -76,7 +76,7 @@ export class ContactoComponent {
       }
     };
 
-    this.contactoService.enviarContacto(payload).subscribe(
+    this.ContactoService.enviarContacto(payload).subscribe(
       (response: any) => {
         this.loading = false;
         if (response.error) {
